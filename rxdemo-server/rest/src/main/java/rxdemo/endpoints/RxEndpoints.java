@@ -23,7 +23,7 @@ public class RxEndpoints {
          Prescription rx = gson.fromJson(request.body(), Prescription.class);
          return command.validatePrescription(rx);
       }, gson::toJson);
-      //Get drugs
+      //Get drugs call
       get("/drugs", (request, response) -> DrugDatabase.getDrugsAvailableForPrescribing(), gson::toJson);
 
       exception(Exception.class, (exception, request, response) -> {
